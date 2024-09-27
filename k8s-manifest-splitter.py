@@ -14,11 +14,18 @@ def split_k8s_manifests(manifest_file):
         for index, doc in enumerate(documents):
             if doc is None:
                 continue
-            kind = doc.get("kind", f"unknown_{index}")  # Use 'unknown_{index}' if 'kind' is not present
-            filename = f"{kind.lower()}_{index}.yaml"  # Lowercase the kind and append index for uniqueness
+
+            # Extract the 'kind' and 'metadata.name', fallback to index if name not present
+            kind = doc.get("kind", f"unknown_{index}")
+            name = doc.get("metadata", {}).get("name", f"unnamed_{index}")
+
+            # Create filename in the format 'kind_name.yaml'
+            filename = f"{kind.lower()}_{name}.yaml"
             filepath = os.path.join(output_dir, filename)
-            # Write each document to its respective file
+
+            # Write each document to its respective file with the '---' separator
             with open(filepath, 'w') as output_file:
+                output_file.write("---\n\n")  # Write the '---' separator
                 yaml.dump(doc, output_file)
             print(f"Created: {filepath}")
 
