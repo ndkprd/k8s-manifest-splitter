@@ -20,11 +20,26 @@ You can see the example in [example](example/) folder, where I generate a base K
 
 ## Use Case Example
 
-1. Converting single Kubernetes manifests to Kustomize base manifests.
+1. Converting single Kubernetes manifests to Kustomize base manifests (case example: ingress-nginx).
 
 ```bash
-wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.11.2/deploy/static/provider/cloud/deploy.yaml
+# pull remote manifests to local
+curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.11.2/deploy/static/provider/cloud/deploy.yaml > ingress-nginx.yaml
 
-python k8s-manifest-splitter.py deploy.yaml
+# convert it into kustomize-friendly format
+python kustomize-generator.py ingress-nginx.yaml
 ```
 
+2. Converting Helm Charts to Kustomize base manifests (case example: [authentik](https://goauthentik.io)).
+
+```bash
+# template out the helm charts
+helm template authentik authentik/authentik > authentik.yaml
+
+# convert it into kustomize-friendly format
+python kustomize-generator.py authentik.yaml
+```
+
+## LICENSE
+
+MIT
