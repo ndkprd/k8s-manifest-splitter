@@ -1,0 +1,22 @@
+---
+
+resources:
+  - nginx-ingress/serviceaccount_ingress-nginx.yaml
+  - nginx-ingress/serviceaccount_ingress-nginx-admission.yaml
+  - nginx-ingress/role_ingress-nginx.yaml
+  - nginx-ingress/role_ingress-nginx-admission.yaml
+  - nginx-ingress/clusterrole_ingress-nginx.yaml
+  - nginx-ingress/clusterrole_ingress-nginx-admission.yaml
+  - nginx-ingress/rolebinding_ingress-nginx.yaml
+  - nginx-ingress/rolebinding_ingress-nginx-admission.yaml
+  - nginx-ingress/clusterrolebinding_ingress-nginx.yaml
+  - nginx-ingress/clusterrolebinding_ingress-nginx-admission.yaml
+  - nginx-ingress/namespace_ingress-nginx.yaml
+  - nginx-ingress/configmap_ingress-nginx-controller.yaml
+  - nginx-ingress/service_ingress-nginx-controller.yaml
+  - nginx-ingress/service_ingress-nginx-controller-admission.yaml
+  - nginx-ingress/job_ingress-nginx-admission-create.yaml
+  - nginx-ingress/job_ingress-nginx-admission-patch.yaml
+  - nginx-ingress/ingressclass_nginx.yaml
+  - nginx-ingress/validatingwebhookconfiguration_ingress-nginx-admission.yaml
+  - nginx-ingress/deployment_ingress-nginx-controller.yaml
