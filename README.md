@@ -8,7 +8,7 @@ Simple script that generate Kustomize base manifests from a single Kubernetes ma
 2. Run it against your joined manifest file:
 
 ```bash
-python k8s-manifest-splitter.py <your-file>
+python kustomize_generator.py <your-file>
 ```
 
 3. Check the output in `./base`.
