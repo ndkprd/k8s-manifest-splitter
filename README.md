@@ -11,6 +11,12 @@ Simple script that generate Kustomize base manifests from a single Kubernetes ma
 python kustomize_generator.py <your-file>
 ```
 
+Or if you want to use it directly:
+
+```bash
+curl -s https://raw.githubusercontent.com/ndkprd/kustomize-generator/refs/heads/main/kustomize_generator.py | python - <your-file>
+```
+
 3. Check the output in `./base`.
 
 You can see the example in [example](example/) folder, where I generate a base Kustomize [ingress-nginx-controller](https://kubernetes.github.io/ingress-nginx/) based on their static joined manifests.
