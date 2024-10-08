@@ -46,6 +46,16 @@ helm template authentik authentik/authentik > authentik.yaml
 python kustomize-generator.py authentik.yaml
 ```
 
+3. Converting export result from [ketall](https://github.com/corneliusweig/ketall) plugin (case example: ingress-nginx).
+
+```bash
+# export resources
+kubectl get-all -n ingress-nginx > ingress-nginx.yaml
+
+# convert it into kustomize-friendly format
+python kustomize-generator.py ingress-nginx.yaml
+```
+
 ## LICENSE
 
 MIT
